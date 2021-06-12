@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $id = Auth::id();
+        $datosUser = user::where("id",$id)->get();
+        return view('home',["datosUser"=>$datosUser]);
     }
     public function mostrarHome(){
         $id = session('id');

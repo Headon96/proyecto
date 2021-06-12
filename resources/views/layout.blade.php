@@ -28,7 +28,6 @@
        </button>
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
        
-       @if(!empty($datosUser))
        @foreach($datosUser as $dUser)
         @if($dUser["cargo"]=="usuario")
                     <ul class="navbar-nav mr-auto">
@@ -139,7 +138,7 @@
                     </ul>
         @endif 
        @endforeach
-       @endif
+       
        
           
           <form class="form-inline my-2 my-lg-0">

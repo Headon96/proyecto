@@ -11,8 +11,10 @@ use Auth;
 class PublicacionController extends Controller
 {
     public function mostrarP(){
+        $id = Auth::id();
+        $datosUser = user::where("id",$id)->get();
         $dpubli = publicacion::get();
-        return view("publicaciones", ["dpubli"=>$dpubli]);
+        return view("publicaciones", ["dpubli"=>$dpubli],["datosUser"=>$datosUser]);
     }
 
     public function crearP(Request $data){
