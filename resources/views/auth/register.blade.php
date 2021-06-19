@@ -5,9 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+            
                 <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
+               
+                <div class="" style="color:white">
+                <img src="/img/logo2.jpg" alt="login" class="login-card-img"><br>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

@@ -25,18 +25,44 @@ class PublicacionController extends Controller
                 'img' =>'mimes:jpeg,bmp,png,jpg | max:2048',
             ]
         );
-            $userId = Auth::id();
-            $publicacion = new publicacion();
-            $publicacion->fecha = $data["fecha"];
-            $publicacion->hora = $data["hora"];
-            $publicacion->titulo_p = $data["txtName"];
-            $publicacion->descripcion_p = $data["txtMsg"];
-            $publicacion->f_id_user = $userId;
-            $publicacion->save();
-
-            $dpubli = publicacion::get();
-            $mensaje = "Registrado con éxito";
-            return view("publicaciones", ["mensaje"=>$mensaje], ["dpubli"=>$dpubli]);
+        if($data['img']==''){
+                    $userId = Auth::id();
+                    $publicacion = new publicacion();
+                    $publicacion->fecha = $data["fecha"];
+                    $publicacion->hora = $data["hora"];
+                    $publicacion->titulo_p = $data["txtName"];
+                    $publicacion->descripcion_p = $data["txtMsg"];
+                    $publicacion->f_id_user = $userId;
+                    $publicacion->save();
+                    $dpubli = publicacion::get();
+                    $mensaje = "Registrado con éxito";                
+                    return view("publicaciones", ["mensaje"=>$mensaje], ["dpubli"=>$dpubli]);
+        }
+        else{
+                    $file = $data["img"];
+                    $nombre =  time()."_".$file->getClientOriginalName();
+                if(strlen($nombre)<=60){
+                    \Storage::disk('public')->put($nombre,  \File::get($file));
+                
+                    $userId = Auth::id();
+                    $publicacion = new publicacion();
+                    $publicacion->fecha = $data["fecha"];
+                    $publicacion->hora = $data["hora"];
+                    $publicacion->titulo_p = $data["txtName"];
+                    $publicacion->img_publi = $nombre;
+                    $publicacion->descripcion_p = $data["txtMsg"];
+                    $publicacion->f_id_user = $userId;
+                    $publicacion->save();
+                    $dpubli = publicacion::get();
+                    $mensaje = "Registrado con éxito";                
+                    return view("publicaciones", ["mensaje"=>$mensaje], ["dpubli"=>$dpubli]);
+                }
+                else{
+                    $mensaje = "El numero de caracteres debe ser menor a 60";
+                    return redirect()->route('publica', $mensaje);
+                } 
+            }
+            
     }
 }
 

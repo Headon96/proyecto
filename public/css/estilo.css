@@ -1,0 +1,15 @@
+.image{
+    width:200px;
+    margin:auto;
+    transition: transform .2s;
+
+}
+.image:hover{
+    -ms-transform: scale(3.0); /* IE 9 */
+    -webkit-transform: scale(3.0); /* Safari 3-8 */
+    transform: scale(2.0); 
+}
+.login-card-img{
+    width:100%;
+    position: absolute;
+}

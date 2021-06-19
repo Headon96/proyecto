@@ -65,17 +65,16 @@
                                         <div class="column">
                                         
                             </div>
+                                                    <div class="image">
+                                                      <img src="{{asset("storage/".$dpub['img_publi'])}}"  width="200" alt="" style="border: 0;width: 100%;max-width: 200px;height: auto;" class="center-on-narrow">
+                                                    </div>
                       
                           <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:660px;">
                                           <tr>
                                             <td align="center" valign="top" style="font-size:0; padding: 10px 0;">
                                               
                                               <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:160px; vertical-align:top; width:100%;" class="stack-column">
-                                                <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                                                  <tr>
-                                                    <td dir="ltr" style="padding: 0 10px 10px 10px;"><img src="algo.png" width="200" alt="" style="border: 0;width: 100%;max-width: 200px;height: auto;" class="center-on-narrow"></td>
-                                                  </tr>
-                                                </table>
+                                                    
                                               </div>
                                               
                                               

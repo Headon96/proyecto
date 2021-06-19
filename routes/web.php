@@ -30,5 +30,5 @@ Route::view('/usuario', 'usuarios');
 route::get('/usuario',[UserController::class,'mostrarUser']);
 
 Route::view('/publicaciones', 'publicaciones');
-route::get('/publicaciones',[PublicacionController::class,'mostrarP']);
+route::get('/publicaciones',[PublicacionController::class,'mostrarP'])->name('publica');
 Route::post('/publicaciones', [PublicacionController::class, "crearP"]);
