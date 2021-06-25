@@ -34,7 +34,7 @@
         @if($dUser["cargo"]=="usuario")
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/publicaciones">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/usuario">Usuario</a>
@@ -44,8 +44,8 @@
                             Publicaciones
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Publicaciones propias</a>
-                            <a class="dropdown-item" href="#">Publicaciones guardadas</a>                   
+                            <a class="dropdown-item" href="/publicaciones">Publicaciones</a>
+                            <a class="dropdown-item" href="/pguardado">Publicaciones guardadas</a>                   
                             </div>
                         </li>
                         <ul class="navbar-nav ml-auto">
@@ -101,7 +101,7 @@
                             </div>
                         </li>  
                         <li class="nav-item">
-                            <a class="nav-link" href="">Administrar usuario</a>
+                            <a class="nav-link" href="/adm_user">Administrar usuario</a>
                         </li>                      
                         <ul class="navbar-nav ml-auto">
                                     
@@ -193,7 +193,7 @@
         @yield('content')
     </main>
     <div class="row">
-          <div class="text-center col-lg-6 offset-lg-3">
+          <div class="text-center col-lg-6 offset-lg-3" >
              <h4>------ </h4>
              <p>Copyright &copy; 2021 &middot; Derechos reservados </p>
           </div>

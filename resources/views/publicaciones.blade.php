@@ -86,14 +86,26 @@
                                                     class="center-on-narrow"><strong style="color:#111111;">{{$dpub['descripcion_p']}}</strong> <br>
                                                       
                                                       <br>
-                                                      
-                                                      
-                                                      
-                                                      <table cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
-                                                        <tr>
-                                                          <td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td"><a href="" style="background: #222222; border: 15px solid #222222; padding: 0 10px;color: #ffffff; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
-                                                            Guardar
-                                                            </a></td>
+
+                                                    <form action="/pguardado" method="post" enctype="multipart/form-data">
+            
+                                                        @csrf
+                                                        <input type="hidden" name="titulo_p" value="{{$dpub['titulo_p']}}">
+                                                        <input type="hidden" name="img_publi" value="{{$dpub['img_publi']}}">
+                                                        <input type="hidden" name="fecha" value="{{$dpub['fecha']}}">
+                                                        <input type="hidden" name="hora" value="{{$dpub['hora']}}">
+                                                        @foreach($datosUser as $user)
+                                                        <input type="hidden" name="id" value="{{$user['id']}}">
+                                                        @endforeach
+                                                        <input type="hidden" name="descripcion_p" value="{{$dpub['descripcion_p']}}">
+
+                                                        
+                                                        <table cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+                                                            <tr>
+                                                            <td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td"><button type="submit" style="background: #222222; border: 15px solid #222222; padding: 0 10px;color: #ffffff; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
+                                                                Guardar
+                                                                </button></td>
+                                                    </form>
                                                         </tr>
                                                       </table>
                                                       

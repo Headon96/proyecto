@@ -25,6 +25,7 @@ class PublicacionController extends Controller
                 'img' =>'mimes:jpeg,bmp,png,jpg | max:2048',
             ]
         );
+        $id = Auth::id();
         if($data['img']==''){
                     $userId = Auth::id();
                     $publicacion = new publicacion();
@@ -35,8 +36,9 @@ class PublicacionController extends Controller
                     $publicacion->f_id_user = $userId;
                     $publicacion->save();
                     $dpubli = publicacion::get();
-                    $mensaje = "Registrado con éxito";                
-                    return view("publicaciones", ["mensaje"=>$mensaje], ["dpubli"=>$dpubli]);
+                    $mensaje = "Registrado con éxito";
+                    $datosUser = user::where("id",$id)->get();                
+                    return view("publicaciones", ["mensaje"=>$mensaje,'datosUser'=>$datosUser], ["dpubli"=>$dpubli]);
         }
         else{
                     $file = $data["img"];
@@ -54,8 +56,9 @@ class PublicacionController extends Controller
                     $publicacion->f_id_user = $userId;
                     $publicacion->save();
                     $dpubli = publicacion::get();
-                    $mensaje = "Registrado con éxito";                
-                    return view("publicaciones", ["mensaje"=>$mensaje], ["dpubli"=>$dpubli]);
+                    $mensaje = "Registrado con éxito";
+                    $datosUser = user::where("id",$id)->get();                 
+                    return view("publicaciones", ["mensaje"=>$mensaje,'datosUser'=>$datosUser], ["dpubli"=>$dpubli]);
                 }
                 else{
                     $mensaje = "El numero de caracteres debe ser menor a 60";
